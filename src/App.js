@@ -1,12 +1,23 @@
 import React from 'react'
+import Todos from './components/Todos'
 
 class App extends React.Component {
-
-  // state you should have
+      constructor(props) {
+        super(props)
+        // state you should have
     // todos
     // singleTodo
     // loading
     // loadingMessage = 'app is loading...' -> pass as props to loading component.
+      const state = {
+          todos: null,
+          singleTodo: null,
+          loading: true,
+          loadingMessage: 'app is loading...'
+        }
+
+      }
+  
 
   
   // Components
@@ -20,7 +31,14 @@ class App extends React.Component {
     // Ability to set a single todo (click event on a todo)
     // Back buttons should make single todo state null. 
 
-
+      componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/todos/")
+        .then((response) => response.json())
+        .then((data) => this.setState({
+          todos: data,
+          loading: false
+        }))
+      }
   // 1. Use componentDidMount to make an api call to https://jsonplaceholder.typicode.com/todos/
   // 2. The app should show all todos in a list.
   // 3. Show a loading component while making api calls
@@ -38,7 +56,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Initial app component</h1>  
+        <h1>Todo List</h1>  
+        <Todos todos = {todos}/>
       </div>
     );
   }
