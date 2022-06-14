@@ -1,16 +1,13 @@
-class Todos extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+import React from 'react'
+import TodoItem from './TodoItem'
 
-    render(){
-    
-        return (
-    <ul>
-        {props.items.map(item =>
-           <TodoItem item = {item} /> )}
-    </ul>
-)
+class Todos extends React.Component {
+    render() {
+        return(
+            this.props.todos.map((elem) => {
+               return  <TodoItem elem={elem} key={elem.id} setSingleTodo={this.props.setSingleTodo} />
+            }) 
+        )
     }
 }
 

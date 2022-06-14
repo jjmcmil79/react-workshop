@@ -1,12 +1,16 @@
-import React from "react"
+import React from 'react'
+
 class TodoItem extends React.Component {
-    constructor(props) {
-        super(props)
+    render() {
+        
+        const handleSetSingleTodo = (e) => {
+            this.props.setSingleTodo(e) 
+        }
+
+        return(
+            <h1 className="todoItem" id={this.props.elem.id} onClick={handleSetSingleTodo}>{this.props.elem.title}</h1>
+        )
     }
-render () {
-    return (
-        props.todos.map
-    )
 }
-    
-}
+
+export default TodoItem
