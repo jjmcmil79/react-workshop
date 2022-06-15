@@ -8,7 +8,8 @@ class TodoItem extends React.Component {
         }
 
         return(
-            <h1 className="todoItem" id={this.props.elem.id} onClick={handleSetSingleTodo}>{this.props.elem.title}</h1>
+            <h1 className="todoItem" id={this.props.elem.id} onClick={handleSetSingleTodo}>
+                {this.props.elem.title}</h1>
         )
     }
 }
